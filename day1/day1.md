@@ -8,6 +8,8 @@
 - git commit --amend (마지막 커밋 코멘트 수정하기)
     - git config --global core.editor "code --wait"
 
+## Git Branch
+
 - git branch (브랜치 목록 보기)
 - git branch [브랜치 이름] (브랜치 생성)
 - git checkout [브랜치 이름] (브랜치 변경)

@@ -4,3 +4,4 @@
 - git add (스테이지에 추가하기)
 - git commit -m (수정내용 확정하기)
 - git push (Remote 저장소로 파일보내기)
+- git pull (Remote 저장소 내용을 local로 가져오기)

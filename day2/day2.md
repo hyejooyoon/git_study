@@ -68,7 +68,7 @@ HTML 언어를 학습할 때 알아야 할 기본 용어는 다음과 같다.
 
 ##제목 및 단락 요소
 - 사용자가 가장 먼저 읽는 콘텐츠는 제목(Heading Level 1-6)으로 제목은 Hn 요소로 구성됨
-- 사용자가 가장 많이 읽는 코넨츠는 단락(Paragraph)로 단락은 P 요소로 구성됨
+- 사용자가 가장 많이 읽는 콘텐츠는 단락(Paragraph)로 단락은 P 요소로 구성됨
 
 ##피규어(figure) 및 이미지
 - HTML 문서에 연결되어 화면에 표시되는 이미지 요소와 동영상, 차트, 표, 이미지 등을 캡션과 함께 묶어주는 요소가 바로 피규어(figure)임
@@ -76,5 +76,32 @@ HTML 언어를 학습할 때 알아야 할 기본 용어는 다음과 같다.
 - 이미지 삽입 예시
 ![From A to Z Zucchini](./img/logo.gif)
 - src 속성 : 이미지 파일
-- alt 속성 : 대체 텍스트
+- alt 속성 : 대체 텍스트/
 - with/height 속성 : 이미지의 가로 및 세로 크기
+
+##목록(Lists)
+HTML 문서 작성 시, 목록은 매우 빈번하게 사용 되는 요소들이며 비순차 목록, 순차 목록이 있음
+- 비순차(unordered) : 뭘 먼저 봐도 상관없는
+  > [MDN web docs - Unordered List](https://developer.mozilla.org/ko/docs/Web/HTML/Element/ul)
+  > HTML unordered list 요소 li는 리스트에서의 순서가 의미없는, 숫자 순서를 가지고 있지 않은, 정렬되지 않은 항목들의 리스트를 나타냅니다. 일반적으로, 정렬되지않은 리스트의 항목들은 굵은 점과 함께 표시됩니다.
+- 순차(ordered) : 순서가 중요한 (best 1~5 같은)
+  > [MDN web docs - ordered List](https://developer.mozilla.org/ko/docs/Web/HTML/Element/ol)
+  > HTML ol 요소는 정렬된 리스트의 항목들을 나타냅니다. 일반적으로, 정렬된 리스트의 항목들은 앞에 번호와 함께 표시되며, 이 번호는 순자,문자,로마 숫자,간단한 점과 같이 어떤 형태로든 나타날수 있습니다.
+- List item
+  > [MDN web docs - Li](https://developer.mozilla.org/ko/docs/Web/HTML/Element/li)
+  > HTML List item 요소 (li) 는 리스트 항목을 나타낼때 사용됩니다. 이 요소는 자신이 리스트에서 하나의 개체를 나타내는 정렬된 리스트(ol), 정렬되지 않은 리스트(ul), 메뉴(menu) 에 포함되어야 합니다. 메뉴와 정렬되지 않은 리스트에서, 리스트 항목들은 일반적으로 글머리 기호와 함께 표시됩니다. 정렬된 리스트에서는,  숫자나 글자가 내림차순으로 왼쪽에 같이 표시됩니다.
+- list item는 li(목록항목요소) 순차는 ol 비순차는 ul
+- ul>li*3 하면 비순차 리스트 3개가 생김 
+- ol>li*5 하면 순차 리스트 5개가 생김
+
+##앵커와 하이퍼링크
+- 앵커 (같은 페이지 내에서 이동. 주로 비순서형 컨텐츠. e.g. 책갈피, 최상단으로, 네비게이션)
+ > [MDN web docs - Anchor](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
+ > HTML a 요소 (앵커 요소)는 다른 페이지, 파일, 같은 페이지의 어느 위치, 이메일 주소나 그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만듭니다.
+- 하이퍼링크(다른 페이지로 이동)
+- a href 태그에서 title로 툴팁 내용 추가 가능 (목적지를 명확히 알려줄 수 있음)
+- a href 태그에서 target="_blank" 새 창에서 띄우기
+
+##명령어 추가
+- 드래그 후 보기 > 명령팔레트 > emmet : 약어로 줄별 래핑 > 명령어 입력
+- 셋팅 > 바로가기키 > 단축키 설정 가능

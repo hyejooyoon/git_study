@@ -24,9 +24,9 @@ HTML 언어를 학습할 때 알아야 할 기본 용어는 다음과 같다.
 
 ## 표준 모드와 호환 모드
 - 문서 유형 정의(Dcument Type Definition)을 말함 
-> SM(표준 mode)
-> QM(호환 mode) : DTD를 정의하지 않으면 자동으로 호환모드로 적용됨
-> AlmostStandardMode
+  > SM(표준 mode)
+  > QM(호환 mode) : DTD를 정의하지 않으면 자동으로 호환모드로 적용됨
+  > AlmostStandardMode
 
 - HTML 4.01과 XHTML 1.0은 Stripts(엄격) / transition(호환) / frameset으로 나뉘었었는데 HTML5는 하나로 통일 → 문서의 유형을 정의해줘야함 (우리나라의 대부분은 transition 형태로 되어있음)
 
@@ -115,8 +115,8 @@ HTML 문서 작성 시, 목록은 매우 빈번하게 사용 되는 요소들이
 ## 앵커와 하이퍼링크      
   
 - 앵커 (같은 페이지 내에서 이동. 주로 비순서형 컨텐츠. e.g. 책갈피, 최상단으로, 네비게이션)
- > [MDN web docs - Anchor](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
- > HTML a 요소 (앵커 요소)는 다른 페이지, 파일, 같은 페이지의 어느 위치, 이메일 주소나 그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만듭니다.
+  > [MDN web docs - Anchor](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
+  > HTML a 요소 (앵커 요소)는 다른 페이지, 파일, 같은 페이지의 어느 위치, 이메일 주소나 그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만듭니다.
 - 하이퍼링크(다른 페이지로 이동)
 - a href 태그에서 title로 툴팁 내용 추가 가능 (목적지를 명확히 알려줄 수 있음)
 - a href 태그에서 target="_blank" 새 창에서 띄우기
@@ -126,3 +126,56 @@ HTML 문서 작성 시, 목록은 매우 빈번하게 사용 되는 요소들이
   
 - 드래그 후 보기 > 명령팔레트 > emmet : 약어로 줄별 래핑 > 명령어 입력
 - 셋팅 > 바로가기키 > 단축키 설정 가능
+
+
+## 문서의 섹션 및 관련 구조 요소
+
+### [Section 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/section)
+
+HTML Section 요소 (section) 는 문서의 일반적인 구획을 나타냅니다. 즉, (전형적으로 제목을 가지고 있는) 컨텐츠의 주제 그룹을 말합니다. 각 section은 식별되어야하며, 일반적으로 (h1-h6 요소들을 자식으로 가집니다.
+
+### [Article 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/article)
+
+HTML article 요소는 문서, 페이지, 애플리케이션,  또는 사이트 안에 독립적으로 구분되거나 재사용 가능한 영역(예: 신디케이션)을 구성할 수 있습니다. 포럼의 글, 매거진/신문의 기사, 블로그 글 등이 여기에 포함됩니다.
+
+### [Nav 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/nav)
+
+HTML nav 요소는 현재 페이지 안 또는 다른 페이지로 가는 링크를 보여주는 페이지의 한 구획을 말합니다. 주로 태그 안에 메뉴, 목차, 색인 등이 들어갑니다.
+
+### [Main 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/main)
+
+HTML main 요소는 문서나 앱 body의 주요 콘텐츠를 나타냅니다. 주요 콘텐츠 구역은 문서의 핵심 주제나 애플리케이션의 핵심 기능성에 대해 부연, 또는 직접적으로 연관된 콘텐츠들로 이루어집니다.
+
+### [Header 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/header)
+
+HTML header 요소는 소개나 탐색을 돕는것의 그룹을 나타냅니다. 이것은 일부 제목 요소들을 포함할수도 있지만, 로고나 구획의 제목, 탐색 폼 과 같은것들이 포함수도 있습니다.
+
+### [Footer 요소](https://developer.mozilla.org/ko/docs/Web/HTML/Element/footer)
+
+HTML footer 요소는 가장 가까운 구획화 콘텐츠나 구획화 루트의 푸터를 나타냅니다. 푸터는 일반적으로 작성자 구획,저작권 데이터,관련된 문서의 링크에 대한 정보를 포함합니다
+
+- 헤더(머릿말) : 로고, 글로벌/로컬 네비게이션(NAV), 링크 목록, 검색
+  *NAV(네비게이션) : body의 보조 섹션, 보조섹션이기 때문에 제목을 입력해 줘야하지만 디자인을 위해 숨길 수 있음
+  *aside : 내용이 삭제되더라도 메인컨텐츠 이해에 영향을 주지 않는 부가 섹션 (주식, 시세, 날씨, 광고 등)
+- 메인 : 웹 페이지에 한 번밖에 못 쓰는 메인 컨텐츠
+  *article : 기사 (독립적으로 사용가능한 컨텐츠 블록), 섹션안에 아티클을 표현할 수도 아티클 안에 섹션을 표현할 수도 있음
+- 푸터(footer) : 저작권, 연락처, 사이트 정보, 네비게이션
+- 3단 vs 4단 차이점 : 3단은 main만 있고(내비게이션은 헤더 안에 위치), 4단은 메인 상단에 내비게이션 위치
+- 바디 메인 안에 여러개의 보조 섹션 존재(컨텐츠를 카테고리 별로 그룹핑 할 때)
+- 네이티브 : header, main, footer → wai-ara : div role="banner", div role="main" div role"contentinfo" 식으로 role을 지정하여 div로 메인/헤더/푸터 구분을 못하는 점을 보완
+- 섹셔닝 콘텐츠는 헤딩과 풋터의 범위를 결정하는 콘텐츠이다. 각 섹셔닝 콘텐츠 요소에는 잠재적으로 heading과 outline을 암묵적으로 가짐
+   > - heading
+   > - outline
+     -명시적 outline(명시적으로 연관성 있는 섹션이며 섹션의 이름이 무엇인지 지정해주고 아웃라인을 구성) / 암묵적 outline(과거에 사용하던 것으로, 내용을 묶진 않았지만 H1과 P로 암묵적 아웃라인이 구성되어 섹션처럼 동작) 
+- 헤딩들을 모두 뽑으면 목차가 되기 때문에 헤딩을 잘 설정하여야함
+- 숨김 제목을 지정해야하는 이유는 보이스오버(스크린리더) 사용자가 컨텐츠를 쉽게 이해하고 사용하기 쉽게 하기 위함
+
+
+## 명도 대비
+- 텍스트 콘텐츠와 배경 간의 명도대비는 4.5대 1 이상이어야 한다.
+- 화면 확대/축소를 지원하는 경우에는 3대 1까지 허용된다.
+- 명도 대비 확인 : accessibility CCA (colour contrast analyser) 
+  *단축키 - 전경색 f11 배경색 f12
+- 한국형웹 콘텐츠 접근성 지침 (미래창조과학부) 5.3.3. 참조
+- 웹 접근성 품질인증 표준심사지침 (미래창조과학부)
+

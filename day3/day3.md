@@ -160,12 +160,6 @@ flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow�
 - item의 order값을 통해 정렬 변경 가능 (.item4 {order: -1;})
 - normal 배치에서는 상하 마진값이 자동겹쳐서 균등 배치 되는데, flex 배치에서는 동일하게 안됨
 
-#### 그 외 
- - .container>.item*4 (.앞에 아무것도 안쓰면 div가 생성됨)
- - .container>.item.item$*4 (공통으로 아이템 숫자 생성)
- - ctrl + ? : 주석처리
- - top: initial ← 위에서 설정해놓은 것을 초기화
- - caniuse 사이트에서 검색 후 polyfill (대안 방법)을 찾을 수 있음
 
 ## [포지션 레이아웃](https://developer.mozilla.org/ko/docs/Web/CSS/position)
 
@@ -202,3 +196,44 @@ position CSS 속성은 문서 상에 요소를 배치하는 방법을 지정합�
 5) 달라붙는 위치(sticky) : IE 11 브라우저 미지원 ([작동방식 참고사이트](https://html5-demos.appspot.com/static/css/sticky.html))
    > 요소가 일반적인 문서(document) 흐름에 따라 배치됩니다. 그런 다음 top, right, bottom, left 값을 기준으로 플로우 루트(flow root) 및 해당 요소를 포함하는 블록(containing block)에 대한 상대적(relative) 위치에 자리하게 됩니다. 이 오프셋은 다른 요소들에 영향을 주지 않습니다. 이 값은 항상 새로운  stacking context를 생성합니다. 테이블과 관련된 요소들에 미치는 sticky의 효과는 relative와 동일합니다. 브라우저 사양에 따라 overflow : hidden 또는 auto 요소 내에서 작동하지 않을 수 있습니다. (참조: Github issue on W3C CSSWG)
 
+
+
+## 2D 트랜스폼(TransForm)
+
+- IE 9 이상에서만 지원
+- 회전(rotate), 크기(Scale), 이동(tanslate), 비틈
+
+1) 회전 : transform: rotateX(90deg) → deg : degree 각도 / 90도 회전 
+2) 크기 : transform: scale(1.5, 0.7) → 컴마 단위로 x좌표 y좌표를 둘 다 줄 수 있음
+3) 이동 :  translateX(=140px)
+ *한 번에 사용 가능 : transform: scale(1, 2) translateX(-140px) translate(-140px)
+
+
+## [CSS 트랜지션](https://developer.mozilla.org/ko/docs/Web/CSS/transition)
+transition CSS 속성은 transition-property, transition-duration, transition-timing-function 과 transition-delay를 위한 단축 속성입니다. 이 속성으로 엘리먼트의 두 가지 상태 사이에 변화를 줄 수 있습니다. 엘리먼트의 각 상태는 가상 클래스 를 사용해 정의된 :hover 이나 :active 또는 자바스크립트를 사용해 동적으로 만들어진 것들입니다.
+
+- transition-property
+- transition-duration
+- transition-timing-function
+- transition-timing-function
+- transition
+
+- IE 10 이상에서만 지원
+- transition: property(속성), duration(시간)
+- transition-property : top; 탑만 부드럽게 움직여라
+  transition-duration: 0.45s; 0.45초동안 움직여라
+  transition-dalay: 0.4s; 0.4초 멈춘 후에 움직여라
+  transition(4개를 한번에 쓸 수 있는 속기법): top 0.4s ease, transform 0.6s ease-in-out 0.2s; → top을 0.4초 후에 트랜스폼 시작 0.6초 동안, 0.2초 지연
+  transition: all 0.4s
+- [트랜지션 데모(풍선) 확인사이트](https://www.the-art-of-web.com/css/timing-function/)
+- [애니메이션 참조 사이트](https://cubic-bezier.com/#.29,-0.27,.83,.67)
+- [Ceaser 애니메이션 사이트](https://matthewlein.com/tools/ceaser) : timing fuction 소스를 만들어줌
+- [CSS 애니메이션 데모 사이트](https://freefrontend.com/css-page-transitions/) : transition animation demo로 검색
+
+## 그 외 Tip
+ - .container>.item*4 (.앞에 아무것도 안쓰면 div가 생성됨)
+ - .container>.item.item$*4 (공통으로 아이템 숫자 생성)
+ - ctrl + ? : 코딩 중 주석처리
+ - top: initial ← 위에서 설정해놓은 것을 초기화
+ - caniuse 사이트에서 검색 후 polyfill (대안 방법)을 찾을 수 있음
+ - vh : viewport height (100vh : 화면 가득 100%로 채워라)

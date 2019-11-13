@@ -149,10 +149,45 @@ flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow�
 - item의 order값을 통해 정렬 변경 가능 (.item4 {order: -1;})
 - normal 배치에서는 상하 마진값이 자동겹쳐서 균등 배치 되는데, flex 배치에서는 동일하게 안됨
 
-
-## 그 외 
+#### 그 외 
  - .container>.item*4 (.앞에 아무것도 안쓰면 div가 생성됨)
  - .container>.item.item$*4 (공통으로 아이템 숫자 생성)
  - ctrl + ? : 주석처리
+ - top: initial ← 위에서 설정해놓은 것을 초기화
+ - caniuse 사이트에서 검색 후 polyfill (대안 방법)을 찾을 수 있음
 
+## [포지션 레이아웃](https://developer.mozilla.org/ko/docs/Web/CSS/position)
+
+position CSS 속성은 문서 상에 요소를 배치하는 방법을 지정합니다. top, right, bottom,  left 속성이 요소를 배치할 최종 위치를 결정합니다.
+
+- 포지셔닝 : 기본 레이아웃 흐름(Normal Layout Flow)을 재정의 (e.g. layer나 스크롤와 상관없이 같은 곳에 계속 띄우기, 고정 위치에 반투명한 헤더/네비 출력 등 자유로운 배치 가능)
+- 유지보수가 어려운 단점이 있음
+
+### 배치 유형
+배치 요소는 position의 계산값이 relative, absolute, fixed, sticky 중 하나인 요소입니다. 즉 static이 아닌 요소입니다. 
+
+상대적 배치 요소는 position의 계산값이 relative인 요소입니다. top과 bottom은 원래 위치에서의 세로축 거리를, left와 right은 원래 위치에서의 가로축 거리를 지정합니다.  
+
+절대적 배치 요소는 position의 계산값이 absolute 또는 fixed인 요소입니다. top, right, bottom, left는 요소 컨테이닝 블록 모서리로부터의 거리를 지정합니다. 요소가 바깥 여백을 가진다면 거리에 더합니다.  
+
+끈끈한 배치 요소는 position의 계산값이 sticky인 요소입니다. 상대적 배치 요소로 동작하다가 컨테이닝 블록이 플로우 루트flow root(또는 스크롤 중인 컨테이너)의 임계값을 넘으면, 컨테이닝 블록의 반대편 모서리를 만날 때까지 "부착"됩니다.
+
+1) 정적 위치(static) : 기본값(위치값을 지정하지 않았을 때 기본값)
+   > 기본값입니다. static이 지정된 요소는 document의 일반적인 흐름(normal flow)을 따라 배치됩니다. top, right, bottom, left, z-index 속성들이 static에서는 아무런 효과도 주지 못합니다. 
+
+2) 상대 위치(relative) : 자신의 기준(t r 오른쪽상단/ b l 왼쪽하단)
+   - e.g. top: 30px; right: -100px → 위에서 30 오른쪽에서 100만큼 이동
+   - z-index : 겹치는 것을 정함 (숫자가 클수록 위로, 같은 숫자라면 나중에 작성된 게 우선권을 가짐)
+   > relative가 지정된 요소 역시 document의 일반적인 흐름(normal flow)을 따라 배치됩니다. 그리고 요소 자신에 대한 상대적인 top, right, bottom, left 속성에 의한 좌표로 배치됩니다. (relative는 별도의 거리 속성을 주지 않으면 static과 동일하게 동작합니다.)이때 요소의 좌표는 다른 요소들의 위치에 영향을 주지 않습니다. 따라서, 페이지 레이아웃에서 요소에게 지정된 공간은 static일 때와 동일합니다. relative는 z-index의 값이 auto가 아닐 경우에 새로운 stacking context를 만듭니다. table-*-group, table-row, table-column, table-cell, table-caption 요소에 relative가 주는 효과는 정의되지 않았습니다.
+
+3) 절대 위치(absolute) : layer의 개념(float), 부모 내에서 위치
+   > 요소가 일반적인 문서(document) 흐름에서 제거됩니다. 페이지 레이아웃에서 요소에 대한 공간이 생성되지 않습니다. 대신, 가장 가까운 위치에있는 조상에 대해 상대적 위치로 배치됩니다. 그렇지 않으면 초기 컨테이닝 블록을 기준으로 배치됩니다. 최종 위치는 top, right, bottom, left 값에 의해 결정됩니다. 이 값은 z-index가 auto가 아닌 경우에 새로운 stacking context를 생성합니다. 절대적으로 배치된(positioned) 박스(box)들은 마진을 가질 수 있으며 다른 마진에 의해 망가지지 않습니다.
+
+
+4) 고정 위치(flex) : 스크롤과 상관 없이 같은 곳에 위치(광고 같은 거), 사용자가 보는 화면단(view 포트)이 기준(부모 찾지 않음)
+   > 요소가 일반적인 문서(document) 흐름에서 제거됩니다. 페이지 레이아웃에서 요소에 대한 공간이 생성되지 않습니다. 대신, 스크린의 '뷰포트(viewport)를 기준으로 한 위치'에 배치됩니다. 따라서 스크롤되어도 움직이지 않는 고정된 자리를 갖게 됩니다. top, right, bottom, left 값에 의해 최종 위치가 결정됩니다. 이 값은 항상 새로운 stacking context를 생성합니다. 조상의 transform 속성이 none이 아닌 다른 것으로 설정되면, 그 조상은 뷰포트 대신에 컨테이너로 사용됩니다(CSS Transforms Spec). 인쇄된 문서(document)의 경우, 모든 페이지에서 요소가 동일한 위치에 배치됩니다.
+
+
+5) 달라붙는 위치(sticky) : IE 11 브라우저 미지원 ([작동방식 참고사이트](https://html5-demos.appspot.com/static/css/sticky.html))
+   > 요소가 일반적인 문서(document) 흐름에 따라 배치됩니다. 그런 다음 top, right, bottom, left 값을 기준으로 플로우 루트(flow root) 및 해당 요소를 포함하는 블록(containing block)에 대한 상대적(relative) 위치에 자리하게 됩니다. 이 오프셋은 다른 요소들에 영향을 주지 않습니다. 이 값은 항상 새로운  stacking context를 생성합니다. 테이블과 관련된 요소들에 미치는 sticky의 효과는 relative와 동일합니다. 브라우저 사양에 따라 overflow : hidden 또는 auto 요소 내에서 작동하지 않을 수 있습니다. (참조: Github issue on W3C CSSWG)
 

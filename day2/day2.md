@@ -255,7 +255,7 @@ HTML table 요소는 2차원 이상의 데이터를 나타냅니다.
 
 ## 그 외
 - 네이밍 작명 규칙
-  > 파스칼 케이스 : First Incom(첫번째를 무조건 대문자로)
-  > 카멜 케이스 : firstIncome
-  > 스네이크 케이스 : first_income
-  > 케밥 케이스 : first-income
+  > - 파스칼 케이스 : First Incom(첫번째를 무조건 대문자로)
+  > - 카멜 케이스 : firstIncome
+  > - 스네이크 케이스 : first_income
+  > - 케밥 케이스 : first-income

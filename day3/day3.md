@@ -124,11 +124,15 @@ flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow�
 > *참고사이트 : [Flex CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 
-<div style="overflow: hidden">
+<!-- <div style="overflow: hidden">
   <div style="width: 50%; float: left;"><img src="./img/01-container.svg" alt=""></div>
   <div style="width: 50%; float: left;"><img src="./img/02-items.svg" alt="">
 </div>
-<br>
+<br> -->
+
+<img src="./img/01-container.svg" alt="" width="400">
+<img src="./img/02-items.svg" alt="" width="400">
+
 
 - flex-container 부모 요소 > flex-items 자식 요소
 - flex-container로 지정하려면 display 값을 flex로 주면됨

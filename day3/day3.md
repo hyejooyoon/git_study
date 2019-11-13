@@ -78,7 +78,7 @@ inherit CSS 값은 요소가 부모 요소로부터 속성(property)의 계산�
   3) rgb, rgba(alpha 투명도 추가) e.g. rgba(127,255,0,0.3)
   4) hsl, hsla : Hue, Saturation, Lightness을 각도값으로 입력(0도는 red)
 
-## [CSS 기본 박스모델(BOX Model)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model) <font color=red>(*중요!)</font>
+## [CSS 기본 박스모델(BOX Model)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model) (*중요!)
 
 CSS Basic Box Model은 각 요소에 대해 [시각적 서식 모델](https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Visual_formatting_model)에 따라 생성하고 배치하는 사각형 박스(안팎 여백 포함)를 위한 CSS 모듈입니다.
 
@@ -103,7 +103,7 @@ CSS Basic Box Model은 각 요소에 대해 [시각적 서식 모델](https://de
 > <b>margin-box(외부공간) > border-box(테두리공간) > padding-box(내부공간) > content-box(콘텐츠공간)</b>
 - 나머지는 색상 지정 가능, margin box는 배경색이 먹지 않음(여백 제어에만 사용)
 - margin box의 negative margin : 음수값을 적용할 수 있음
-- 인라인박스는 좌/우 방향으로는 마진, 패딩이 바로 보이는데 <u>상/하 방향으로는 마진, 패딩을 설정해도 <b>투명하게 겹쳐져서</b>(높이에 영향을 주지않음, 대신 링크를 주면 겹친만큼 링크 영역은 확장됨) 렌더링 상에선 눈으로 변화가 보이지 않음</u>
+- 인라인박스는 좌/우 방향으로는 마진, 패딩이 바로 보이는데 상/하 방향으로는 마진, 패딩을 설정해도 <b>투명하게 겹쳐져서</b>(높이에 영향을 주지않음, 대신 링크를 주면 겹친만큼 링크 영역은 확장됨) 렌더링 상에선 눈으로 변화가 보이지 않음
 - margin : t r b l (top right bottom left) e.g. margin : 20px 10px 10px 20px
 - margin 50px auto (두번째 값 auto는 좌우값) / margin 50px 0px 0px auto 하면 오른쪽으로 딱붙는 박스가 되지만 여백이 투명해서 안보일 뿐임
 - text-align : 블록 박스일 때만 사용가능 (x축 기준)
@@ -112,4 +112,46 @@ CSS Basic Box Model은 각 요소에 대해 [시각적 서식 모델](https://de
 
 - <b>박스사이징 속성</b>
   *content-box 방식 (기본 박스방식) : 기본 width 및 height에 추가로 보더(아웃라인) 값을 더해야함
-  *border-box 방식 : width와 height에 border, padding 값 포함
+  *border-box 방식 : width와 height에 border, padding 값 포함 (*{box-sizing: border-box;})
+
+
+## [플렉시블 레이아웃(Flexible Layout)](https://developer.mozilla.org/ko/docs/Glossary/Flex)
+
+flex는 CSS display속성에 새롭게 추가 된 값입니다. inline-flex동시에 사용하는 것으로, Element에 Flex 컨테이너 가 적용됩니다. 또한 그 Element의 자식 Element 각각은 Flex 항목 이 적용됩니다. flex 항목이 적용 된 Element는 flex layout을 구성하고 CSS Flexible Box Layout Module에 정의되어있는 속성의 모든이 적용되는 것입니다.
+
+flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow나 flex-shrink, flex-basis 등이 있습니다.
+
+> *참고사이트 : [Flex CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+![flex Container](./img/01-container.svg)   
+![Flex Item2](./img/02-items.svg)   
+  
+- flex-container 부모 요소 > flex-items 자식 요소
+- flex-container로 지정하려면 display 값을 flex로 주면됨
+- 기본 흐름이 위→아래에서 flex로 바꾸면 row 방향(X축)으로 변경
+  *flex-container 하단에 <b>flex-direction</b> 값으로 main axis(메인축)을 column(y축) 또는 row(x축), column-reverse(y축 거꾸로), row-reverse(x축 거꾸로 5-4-3-2-1)까지 설정 가능
+  *축은 정렬을 하기 위해 설정
+  *시작점 flex start > 중앙점 center > 종료점 end
+<br>
+- <b>justify-content 설정 (주축 정렬)</b>
+  e.g. justify-content:center 중앙점부터 배치
+       1) space-between(박스 사이만의 여백을 동일하게 : grid system의 거터)
+       2) space-around(박스의 양쪽 여백을 동일하게 - 박스 사이 여백이 양 쪽 끝 여백의 두 배)
+       3) space-evenly(박스의 모든 여백을 동일하게)
+       알파마진, 오메가마진 등 자동균등분할이 가능
+       4) flex-wrap : wrap; 줄바꿈 허용 / nowrap 자동축소
+       5) flex-shrink : 축소 비율 결정 (디폴트값 1)
+       6) flex-grow : 확대 비율 결정 (디폴트값 0)
+       7) flex-basis
+ 
+- item (교차축 정렬)
+- item의 order값을 통해 정렬 변경 가능 (.item4 {order: -1;})
+- normal 배치에서는 상하 마진값이 자동겹쳐서 균등 배치 되는데, flex 배치에서는 동일하게 안됨
+
+
+## 그 외 
+ - .container>.item*4 (.앞에 아무것도 안쓰면 div가 생성됨)
+ - .container>.item.item$*4 (공통으로 아이템 숫자 생성)
+ - ctrl + ? : 주석처리
+
+

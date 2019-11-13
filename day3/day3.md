@@ -135,14 +135,15 @@ flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow�
 <br>
 - <b>justify-content 설정 (주축 정렬)</b>
   e.g. justify-content:center 중앙점부터 배치
-       1) space-between(박스 사이만의 여백을 동일하게 : grid system의 거터)  
-       2) space-around(박스의 양쪽 여백을 동일하게 - 박스 사이 여백이 양 쪽 끝 여백의 두 배)  
-       3) space-evenly(박스의 모든 여백을 동일하게)  
-       알파마진, 오메가마진 등 자동균등분할이 가능  
-       4) flex-wrap : wrap; 줄바꿈 허용 / nowrap 자동축소  
-       5) flex-shrink : 축소 비율 결정 (디폴트값 1)  
-       6) flex-grow : 확대 비율 결정 (디폴트값 0)  
-       7) flex-basis  
+  
+  1) space-between(박스 사이만의 여백을 동일하게 : grid system의 거터)  
+  2) space-around(박스의 양쪽 여백을 동일하게 - 박스 사이 여백이 양 쪽 끝 여백의 두 배)  
+  3) space-evenly(박스의 모든 여백을 동일하게) 
+  *알파마진, 오메가마진 등 자동균등분할이 가능  
+  4) flex-wrap : wrap; 줄바꿈 허용 / nowrap 자동축소  
+  5) flex-shrink : 축소 비율 결정 (디폴트값 1)  
+  6) flex-grow : 확대 비율 결정 (디폴트값 0)  
+  7) flex-basis  
  
 - item (교차축 정렬)
 - item의 order값을 통해 정렬 변경 가능 (.item4 {order: -1;})

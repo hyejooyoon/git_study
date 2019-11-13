@@ -57,9 +57,10 @@ inherit CSS 값은 요소가 부모 요소로부터 속성(property)의 계산�
   e.g. p { color: red !important; } 
 - 구체성(Specificity) : 좀 더 구체적으로 말하는 것. 선택자의 우선권에 대한 척도.    
 
-> ##### 요소 선택자 < 클래스선택자 < ID 선택자 < 인라인스타일
+> <br> <b>요소 선택자 < 클래스선택자 < ID 선택자 < 인라인스타일</b>
 > * 이 때 *, >, +, ~등 콤비네이터, :not() 가상클래스는 특성에 영향을 주지않음
-> * 선택자를 몇 개 썼는지를 체크
+> * 선택자를 몇 개 썼는지를 체크 
+> <br>
 
 | 예시 | Inline Style | ID | Class | Element |
 |:--------|:--------:|:--------:|:--------:|:--------:|
@@ -77,3 +78,38 @@ inherit CSS 값은 요소가 부모 요소로부터 속성(property)의 계산�
   3) rgb, rgba(alpha 투명도 추가) e.g. rgba(127,255,0,0.3)
   4) hsl, hsla : Hue, Saturation, Lightness을 각도값으로 입력(0도는 red)
 
+## [CSS 기본 박스모델(BOX Model)](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model) <font color=red>(*중요!)</font>
+
+CSS Basic Box Model은 각 요소에 대해 [시각적 서식 모델](https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Visual_formatting_model)에 따라 생성하고 배치하는 사각형 박스(안팎 여백 포함)를 위한 CSS 모듈입니다.
+
+- [display](https://developer.mozilla.org/ko/docs/Web/CSS/display)
+- [box-sizing](https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing)
+- [width](https://developer.mozilla.org/ko/docs/Web/CSS/width)
+- [height](https://developer.mozilla.org/ko/docs/Web/CSS/height)
+- [margin](https://developer.mozilla.org/ko/docs/Web/CSS/margin)
+- [border](https://developer.mozilla.org/ko/docs/Web/CSS/border)
+- [padding](https://developer.mozilla.org/ko/docs/Web/CSS/padding)
+
+<br>
+
+> <b>블록(Block, Flow contents) vs 인라인(Inline, Phrasing Contents)</b>
+- 블록 박스 : 여백 포함 (너비 width, 높이 height 설정 가능) → 위에서 아래로 쌓여내려가는 형태
+  *검사(개발툴) > style > displayed 또는 computed > display 에서 뭔지 파악 
+- 인라인 박스 : 컨텐츠만 (너비, 높이 설정 불가)
+- 인라인 블록박스 : 인라인 성질을 가지지만 블록 박스처럼 높이, 너비 설정 가능
+  *width 기본 값 : 100%(부모값)
+- 블록, 인라인, 인라인블록박스는 정렬 기법(상자를 가운데에 놓고 싶어요) 사용 불가 → flex 박스는 가능
+
+> <b>margin-box(외부공간) > border-box(테두리공간) > padding-box(내부공간) > content-box(콘텐츠공간)</b>
+- 나머지는 색상 지정 가능, margin box는 배경색이 먹지 않음(여백 제어에만 사용)
+- margin box의 negative margin : 음수값을 적용할 수 있음
+- 인라인박스는 좌/우 방향으로는 마진, 패딩이 바로 보이는데 <u>상/하 방향으로는 마진, 패딩을 설정해도 <b>투명하게 겹쳐져서</b>(높이에 영향을 주지않음, 대신 링크를 주면 겹친만큼 링크 영역은 확장됨) 렌더링 상에선 눈으로 변화가 보이지 않음</u>
+- margin : t r b l (top right bottom left) e.g. margin : 20px 10px 10px 20px
+- margin 50px auto (두번째 값 auto는 좌우값) / margin 50px 0px 0px auto 하면 오른쪽으로 딱붙는 박스가 되지만 여백이 투명해서 안보일 뿐임
+- text-align : 블록 박스일 때만 사용가능 (x축 기준)
+- line-height : 글자 포함 상하 높이를 설정
+- Dimension 설정 : 블록박스, 인라인블록박스의 수치 설정으로 박스 크기를 변경 (width, height)
+
+- <b>박스사이징 속성</b>
+  *content-box 방식 (기본 박스방식) : 기본 width 및 height에 추가로 보더(아웃라인) 값을 더해야함
+  *border-box 방식 : width와 height에 border, padding 값 포함

@@ -130,9 +130,12 @@ flex속성은 flexbox 속성을 줄여서 나타낸 속성입니다. flex-grow�
 </div>
 <br> -->
 
-<img src="./img/01-container.svg" alt="" width="400">
-<img src="./img/02-items.svg" alt="" width="400">
-
+<table>
+<tr>
+<td><img src="./img/01-container.svg" alt="" width="400"></td>
+<td><img src="./img/02-items.svg" alt="" width="400"></td>
+</tr>
+</table>
 
 - flex-container 부모 요소 > flex-items 자식 요소
 - flex-container로 지정하려면 display 값을 flex로 주면됨

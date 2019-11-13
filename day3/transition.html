@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <title>Transition Animation</title>
+  <style>
+  .box {
+    box-sizing : border-box;
+    width : 200px;
+    height: 200px;
+    padding-top: 50px;
+    line-height: 35px;
+    text-align: center;
+    background-color: lightcoral;
+    font-weight: bold;
+    border: 5px solid black;
+    transition: all 2000ms;
+    /* background-color 1000ms, 
+    border-radius 1000ms 1000ms,
+    transform 1000ms; */
+  }
+  .box:hover{
+    background-color: lightseagreen;
+    border-radius: 50%;
+    transform: rotate(2turn);
+  }
+  .box span{
+    display: block;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>Transition Effects</h1>
+  <div class="box"><span>Transition</span><span>Animation</span>
+  </div>
+</body>
+</html>

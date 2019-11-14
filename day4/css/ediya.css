@@ -1,0 +1,13 @@
+::-moz-selection {
+  background: #233d84;
+  color: #ffffff;
+ }
+ 
+ ::selection {
+  background: #233d84;
+  color: #ffffff;
+ }
+ body * {
+  -webkit-tap-highlight-color: rgba(255, 255, 200, 0.3);
+  tap-highlight-color: rgba(255, 255, 200, 0.3);
+ }

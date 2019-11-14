@@ -7,6 +7,7 @@
 - Bitmap → Vector(css, svg img, text도 vector) 기반으로 변화 중이므로 이를 고려해야함
 - 요소검사 개발툴(F12) > console tab > window.devicePixelRatio 검색하면 모니터의 비율을 알 수 있음
 - normalize.css를 쓰는 이유 : 모바일 디바이스에서 세로모드(Potrait mode)에서 가로모드(landscape mode)로 전환(orientation change) 시 iOS에서 장평이 변화하는 등의 문제 등을 기본적으로 수정 적용
+- css 파일에서 : : 는 상태선택자
 
 
 ## 이디야 웹제작실습
@@ -43,3 +44,19 @@
 6. 하단 P 목록 작성 dl(쌍을 이루는) > dt / dd를 통해 셋트로 묶어줌
 7. 윈도우 닫기 버튼 만들기 
 8. 특수문자 사용시 &copy; 저작권 C 표시 & c o p y ; 로 써야함
+
+
+## CSS 실습
+- nav a {
+  color: inherit; 컬러값을 부모에 상속하겠다
+  text-decoration: none; 밑줄을 긋지 않겠다
+  
+- a img {
+  vertical-align: middle; 이미지를 중간에 위치하게
+
+- clip-path: polygon(0 0,0 0,0 0);
+  → [참조 사이트](https://bennettfeely.com/clippy/)
+
+- 커서 모양 바꾸기 : cursor: crosshair;
+
+- [user select](https://developer.mozilla.org/ko/docs/Web/CSS/user-select)

@@ -40,6 +40,67 @@
 - 저작권 정보 (sall.copyright) : \&copy;
 
 
+## 이디야(Ediya) 레이아웃 및 디자인
+
+### 헤더(header)
+- position : fixed로 레이어 형태로 배치
+- fade-slide-in-from-top 애니메이션 지정
+```CSS
+@keyframe fade-slide-in-from-top {
+  0%{
+  transform: translateY(-4em);
+  opacity: 0;}
+}
+100%{
+  transform: none;
+  opacity: 1;}
+}
+
+.app-header {
+  opacity: 0;
+  animation: 
+    fade-slide-in-from-top 
+    0.35s 
+    0.4s 
+    ease-out forwards;
+}
+```
+
+- 브랜딩 로고 및 버튼도 배치 (Flex 사용)
+- 내비게이션 (position: fixed)
+
+### 이디야 음료(main)
+- 음료 레이아웃을 위해 flex 사용
+- 음료 아이템크기를 지정 40%(flex: 1 1 40%)
+- 음료 아이템을 position: relative로 지정(상세정보의 기준이 되기 위해 relative로)
+- 음료 버튼(a)을 display: block으로 지정
+- 가운데 정렬 (text-align: center)
+- 상세정보 (position: absolute로 배치)
+- 음료 성분 정보의 경우  multi column으로 2단 배치
+    - column-count: 2 (2단으로 구분)
+    - column-get: 20px (단 사이 여백)
+    - column-rule: 1px solid #999; (컬럼의 구분선 - 굵기, 모양, 색깔)
+  
+``` css
+ .ediya-menu__item--multi-column {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  column-gap: 20px;
+  column-fill: auto;
+  column-rule: 1px solid #999;
+  padding: 1em 1.5em;
+  background: #f8f8f8;
+ }
+
+ .ediya-menu__item--multi-column.is-2 {
+  column-count: 2;
+ }
+```
+
+
+
 ## 실습 메모
 
 - [Troy Web](http://troy.labs.daum.net/) : 실 디바이스 환경에서 어떻게 보이는지 체크할 때 사용

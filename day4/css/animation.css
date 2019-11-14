@@ -5,16 +5,6 @@
   }
 }
 
-@keyframes fade-slide-in-from-right{
-  0%{
- 
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-}
-
 .app-header {
   transform: translateY(-4rem);
   opacity: 0;

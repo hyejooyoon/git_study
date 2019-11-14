@@ -1,13 +1,41 @@
+@keyframes transform-none{
+  100%{
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-slide-in-from-right{
+  0%{
+ 
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
 .app-header {
+  transform: translateY(-4rem);
+  opacity: 0;
+  animation: transform-none 0.35s forwards;
 }
 
 .brand {
+  transform: translateX(-4rem);
+  opacity: 0;
+  animation : transform-none 0.35s 0.7s forwards;
 }
 
 button[title="메뉴 열기"] {
+  transform: translateX(+4rem);
+  opacity: 0;
+  animation-name: fade-slide-in-from-right;
+  animation : transform-none 0.35s 0.95s forwards;
 }
 
 .ediya-menu__item {
+
 }
 
 .ediya-menu__item:nth-child(1) {

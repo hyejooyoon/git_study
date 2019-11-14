@@ -1,5 +1,47 @@
 # Day 4 학습 내용
 
+## 이디야(Ediya) 구조설계
+### head 요소
+- meta : view port meta tag 선언 (모바일 환경을 위해서)
+- title : 문서의 제목
+- link : 스타일 시트 (ediya.css, animation.css)
+- link : favicon.ico
+
+### body 요소
+- 헤더(header)
+- 메인(main)
+- 푸터(footer)
+
+### 헤더(header)
+- 로고 (h1>a>span.ir) [IR 기법을 활용(image replacement)하여 배경 이미지로 처리]
+- 메인메뉴 열기 버튼 (button>span.ir)
+- 내비게이션(nav) [비순차 목록을 활용하여 메뉴 링크 마크업]
+- 메인메뉴 닫기 버튼 (button>span[aria-hidden="true"] - 화면에는 보이지만 스크린리더가 읽지 않게 하는 설정) 
+
+### 메인(Main)
+- 숨김 제목 (h2.a11y-hidden)
+  ```css
+  .a11y-hidden{
+  position: absolute;
+  white-space: nowrap;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  clip-path: polygon(0 0,0 0,0 0);}  ```
+  
+- 음료 목록 (ul>li>a[role="button"]+div[role="dialog"])
+- 음료 버튼 (a[role="button"]>figure>img+figcaption)
+- 음료 상세정보 (div[role="dialog"]>h3+p+div+button)
+- 음료 상세정보 내용 (div>dl>dt+dd)
+
+### 푸터(footer)
+- 저작권 정보 (sall.copyright) : \&copy;
+
+
+## 실습 메모
+
 - [Troy Web](http://troy.labs.daum.net/) : 실 디바이스 환경에서 어떻게 보이는지 체크할 때 사용
 - <b>픽셀 밀도(pixel density)</b> : 공간(inch)에 픽셀이 들어가는 물리적인 수치(첫 맥킨토시는 인치당 72px이었음)
 - <b>디바이스의 픽셀 밀도(device pixel density)</b> : 애플이 2010년 픽셀을 x2(가로와 세로가 2배 = 72X4이므로 4배만큼 훨씬 촘촘해짐)로 올린 레티나(Retina Display) 공개 
@@ -8,9 +50,10 @@
 - 요소검사 개발툴(F12) > console tab > window.devicePixelRatio 검색하면 모니터의 비율을 알 수 있음
 - normalize.css를 쓰는 이유 : 모바일 디바이스에서 세로모드(Potrait mode)에서 가로모드(landscape mode)로 전환(orientation change) 시 iOS에서 장평이 변화하는 등의 문제 등을 기본적으로 수정 적용
 - css 파일에서 : : 는 상태선택자
+- 색상에 의존한 정보 제공(접근성 떨어짐)이 아닌 패턴이나 테두리나 추가 요소 등으로 디자인할 것
+- 타이포상 가독성이 높은 줄간격은 1.6배이나 편하게 하기 위해 보통 1.5배를 사용
+- function을 module化
 
-
-## 이디야 웹제작실습
 - meta name="viewport" content="width=device-width, initial-scale=1.0"  
   → "width=device-width"가 반응형웹에서 모바일 물리 디바이스 해상도에 맞춰서 표현하라는 것
 - section, aticle, nav, aside는 암묵적으로 heading을 가지며 head는 '제목'이 필요함
@@ -19,6 +62,7 @@
 - Span class="ir" 은 IR 이미지를 배경으로 쓰겠다는 것 
   → IR은 배경 처리 되어서 대체텍스트를 줄 수 없기 때문에 title(툴팁)과 aria-label로 레이블링 해줘야 함
 
+<br>
 
 1. 마크업 순서 결정 (brand name → drawer btn → main contents)
 2. 구조 짜기 : 각 영역의 제목(class)을 지정해 줌 ([tota11y chrome plug-in](https://chrome.google.com/webstore/detail/tota11y-plugin-from-khan/oedofneiplgibimfkccchnimiadcmhpe)으로 체크)
@@ -44,9 +88,10 @@
 6. 하단 P 목록 작성 dl(쌍을 이루는) > dt / dd를 통해 셋트로 묶어줌
 7. 윈도우 닫기 버튼 만들기 
 8. 특수문자 사용시 &copy; 저작권 C 표시 & c o p y ; 로 써야함
+9. 헤더 애니메이션 제작
+10. 메뉴 디자인
 
-
-## CSS 실습
+<br>
 - nav a {
   color: inherit; 컬러값을 부모에 상속하겠다
   text-decoration: none; 밑줄을 긋지 않겠다
@@ -60,3 +105,38 @@
 - 커서 모양 바꾸기 : cursor: crosshair;
 
 - [user select](https://developer.mozilla.org/ko/docs/Web/CSS/user-select)
+
+- 애니메이션을 정의하려면 @keyframes 을 사용하고 그 뒤에 이름을 정의 (애니메이션 이름은 구체적으로 정하자)
+  @keyframes name{
+    from{}
+    to{
+      transform: translateX(740px);
+    }
+  }
+
+- animation-iteration-count: infinite; 무한반복
+- animation-direction: alternate; 역방향으로 왔다가 갔다가 함
+- animation-fill-mode: forwards; 애니메이션 끝난 후 그대로 유지
+- opacity : 투명도
+- transform: none; 의 none = translateY(0em);
+- flex-basis: 300px; 컨텐츠의 기본 크기
+- flex: 1 1 40%; 전체의 40%로 표시 (첫번째는 확대 / 두번째는 축소 shrink / 마지막은 비율)
+- flex-flow: row wrap; 줄바꿈 시켜라
+
+- display를 블락으로 바꿔야 줄바꿈 및 글자에 스타일을 적용 가능
+ .ediya-menu__item--name span {
+  display: block;
+  font-size: 14px;
+  color: #737373;
+ }
+- float하면 부모가 자식들 위치를 잃어버림 
+  → float된 요소의 부모에게 overflow 
+
+- column-count: 2; 컬럼 나누기
+- column-gap : 컬럼사이 간격 설정
+- column-rule: 1px solid #999; 컬럼 구분선
+
+- [backdrop-filter 함수 참조](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+
+- 시퀀스 애니메이션 : 시간차를 두는 애니메이션 (e.g. delay는 끝난 다음에 시작되는 느낌, duration은 자연스럽게)
+- 애니메이션 명령 한 번에 쓸 때 : name > duration > delay > timing > fuction > fill mode 순으로 삽입
